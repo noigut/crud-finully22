@@ -1,60 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Page Title</title>
     <meta charset="UTF-8" />
-    <title>Main page</title>
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            width: 1200px;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0 auto;
-            background-image: url(https://images.unsplash.com/photo-1635071858385-26289d95e82b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1887&q=80);
-            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+        }
+        /* Style the header */
+        .header {
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 600px;
             text-align: center;
+            background-image: url(https://images.unsplash.com/photo-1635071858385-26289d95e82b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1887&q=80);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 89.3vh;
+            box-sizing: border-box;
         }
-        .wrapper {
-            border: 4px solid white;
-            border-radius: 10px;
+        /* Increase the font size of the h1 element */
+        .header h1 {
+            font-size: 40px;
+            color: white;
+            font-style: initial;
+        }
+        /* Style the top navigation bar */
+        .navbar {
+            background-color: #333;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 500px;
-            height: 200px;
+            justify-content: space-around;
             align-items: center;
-        }
-        h1{
             color: white;
-            font-size: 3rem;
+            text-shadow: 2px 5px 15px white;
         }
-        a{
-            border: 2px solid wheat;
-            color: white;
-            text-decoration: none;
-            width: 200px;
+        /* Style the navigation bar links */
+        a {
+            display: block;
+            color: #d4d1d1;
             text-align: center;
-            border-radius: 5px;
-            font-size: 20px;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 25px;
+            text-shadow: 2px 5px 15px rgb(17, 17, 17);
         }
-        a:hover {
-            background: rgb(74, 88, 84);
+        /* Change color on hover */
+        .navbar a:hover {
+            /*background: darkgrey;*/
+            color: white;
+        }
+        .btn{
+            width: 20vw;
+            height: 20vh;
+            background: none;
+            box-shadow: 1px 1px 5px 1px white;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 30px;
+        }
+        .btn:hover,
+        .btn::after{
+            border-color: white;
+            background-color: rgba(0, 0, 0, 0.30);
+            text-shadow: 2px 5px 15px white;
+        }
+        .azn{
+            position: fixed;
+            right: -200px;
+            top: 1;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: 0.5s ease-in;
+            font-size: 40px;
+        }
+        .azn.show {
+            opacity: 1;
+            right: 0;
+            transition: 1s all ease-in-out;
+            transform: scale(0.5);
         }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <h1 class="animate__animated animate__backInDown">
-        Welcome to main page
-    </h1>
-    <br />
-    <a href="login"> SIGN </a>
+<div class="navbar">
+    <h1>MAIN PAGE</h1>
+    <p class="azn" id="p">A project created by AJN.</p>
 </div>
+<!--<button type="submit"><a href="/login">login</a></button>-->
+<form id="header" class="header" action="/login" target="_blank">
+    <button class="btn" id="btnin" type="submit"><a href="/login">Sign in</a></button>
+</form>
+<script>
+    let btn = document.getElementById('btnin')
+    let p = document.getElementById('p')
+    btn.addEventListener('mouseover',()=>{
+        p.classList.toggle('show')
+    })
+</script>
 </body>
 </html>
+
+
+
+
+
+

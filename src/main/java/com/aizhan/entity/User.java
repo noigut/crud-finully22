@@ -3,14 +3,17 @@ package com.aizhan.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.HashSet;
+
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User implements UserDetails{
+public class User
+        implements UserDetails
+        {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +31,7 @@ public class User implements UserDetails{
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
-    private Set<Role> roles = new HashSet<>();;
+    private Set<Role> roles;
 
     public User() {
     }
@@ -41,14 +44,20 @@ public class User implements UserDetails{
         this.roles = roles;
     }
 
-    public User(String name, String surname, String email, Set<Role> roles) {
+    public User(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.roles = roles;
     }
 
-    public String getName() {
+            public User(Long id, String name, String surname, String email) {
+                this.id = id;
+                this.name = name;
+                this.surname = surname;
+                this.email = email;
+            }
+
+            public String getName() {
         return name;
     }
 
@@ -83,7 +92,7 @@ public class User implements UserDetails{
 
     @Override
     public String toString() {
-        return "User" + "name:'" + name + '\'' + ", surname:'" + surname + '\'' + ", email:'" + email;
+        return  "name:'" + name + '\'' + ", surname:'" + surname + '\'' + ", email:'" + email;
     }
 
 
