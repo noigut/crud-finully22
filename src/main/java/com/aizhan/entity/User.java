@@ -12,8 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User
-        implements UserDetails
-        {
+        implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +35,14 @@ public class User
     public User() {
     }
 
+    public User(Long id, String name, String surname, String email) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -44,20 +51,8 @@ public class User
         this.roles = roles;
     }
 
-    public User(String name, String surname, String email) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-    }
 
-            public User(Long id, String name, String surname, String email) {
-                this.id = id;
-                this.name = name;
-                this.surname = surname;
-                this.email = email;
-            }
-
-            public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -92,7 +87,7 @@ public class User
 
     @Override
     public String toString() {
-        return  "name:'" + name + '\'' + ", surname:'" + surname + '\'' + ", email:'" + email;
+        return "name:'" + name + '\'' + ", surname:'" + surname + '\'' + ", email:'" + email;
     }
 
 

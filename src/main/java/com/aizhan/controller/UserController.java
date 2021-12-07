@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -32,18 +33,7 @@ public class UserController {
         for (User user : userService.listUsers()) {
             users.add(new User(user.getId(), user.getName(), user.getSurname(), user.getEmail()));
         }
-        return users;
-    }
-
-
-    @GetMapping("/{id}")
-    @CrossOrigin
-    public ResponseEntity<User> getById(@PathVariable("id") Long userId) {
-        try {
-            return new ResponseEntity<>(userService.getById(userId), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return users.stream().sorted(Comparator.comparing(User::getId)).collect(Collectors.toList());
     }
 
     @PostMapping("/save-user")
@@ -58,11 +48,25 @@ public class UserController {
         }
     }
 
+    @GetMapping("/{id}")
+    @CrossOrigin
+    public ResponseEntity<User> getById(@PathVariable("id") Long userId) {
+        try {
+            return new ResponseEntity<>(userService.getById(userId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PutMapping("/update")
     @CrossOrigin
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         try {
-            return new ResponseEntity<>(userService.saveUser(user), HttpStatus.OK);
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleService.getRoleByName("ROLE_USER"));
+            user.setRoles(roles);
+            return new ResponseEntity<>(
+                    userService.saveUser(user), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

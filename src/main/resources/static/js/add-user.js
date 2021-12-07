@@ -1,11 +1,7 @@
-
 const addUserForm = document.getElementById('formControl')
 let nameInput = document.getElementById('nameInput')
 let surnameInput = document.getElementById('surnameInput')
 let emailInput = document.getElementById('emailInput')
-
-// let data = {name: nameInput,surname: surnameInput, email: emailInput}
-// console.log(data +)
 
 addUserForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -13,8 +9,6 @@ addUserForm.addEventListener("submit", (event) => {
     let close = document.getElementById('btnClose')
     close.setAttribute("data-dismiss" ,'modal')
     close.click()
-
-
 
     fetch('http://localhost:8044/api/users/save-user', {
         method: "POST",
@@ -26,8 +20,6 @@ addUserForm.addEventListener("submit", (event) => {
             surname: surnameInput.value,
             email: emailInput.value,
         })
-
-
     })
         .then((response) => {
             console.log(response.json());
@@ -36,8 +28,6 @@ addUserForm.addEventListener("submit", (event) => {
         .then((response)=>{
             location.reload()
         })
-
-
 });
 
 

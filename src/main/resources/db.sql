@@ -7,7 +7,7 @@ values('admin','admin','admin@gmail.com'),
 select * from roles;
 insert into roles (role)
 values ('ROLE_USER'),
-       ('ROLE_ADMIN');
+      ('ROLE_ADMIN');
 
 select * from user_roles;
 insert into user_roles(user_id,roles_id)

@@ -18,4 +18,9 @@ public class MainController {
         System.out.println("users");
         return "users";
     }
+    @GetMapping("/update-user")
+    public String adminPage1(){
+        System.out.println("users");
+        return "update-user";
+    }
 }

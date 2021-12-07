@@ -1,19 +1,23 @@
 let url = ("http://localhost:8044/api/users");
 
-function del(id)//Любая функция
-{
-    if (confirm('Delete?'))
-        /*функция со всплывающим окном
-        с выбором действий "ок" или "отмена"*/
-    {
+let btn = document.getElementById('deletebtn')
 
-
-            fetch(url + "/delete/" + id, {
-                method: "DELETE",
-            })
-                .then((response) => {
-                    location.reload()
-                })
-        }
+function del(id) {
+    btn.addEventListener('click', () => {
+        fetch(url + '/delete/' + id, {
+            method: "DELETE",
+            body: {id}
+        }).then((response) => {
+    location.reload()
+})
+    })
 
 };
+
+
+
+
+
+
+
+
