@@ -43,6 +43,15 @@ public class User
 
     }
 
+    public User(Long id, String name, String surname, String email, Set<Role> roles) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.roles = roles;
+
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }

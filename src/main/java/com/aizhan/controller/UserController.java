@@ -48,15 +48,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{id}")
-    @CrossOrigin
-    public ResponseEntity<User> getById(@PathVariable("id") Long userId) {
-        try {
-            return new ResponseEntity<>(userService.getById(userId), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
+
 
     @PutMapping("/update")
     @CrossOrigin

@@ -3,14 +3,11 @@ package com.aizhan.controller;
 import com.aizhan.entity.User;
 import com.aizhan.service.UserService;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserPageController {
 
@@ -20,11 +17,11 @@ public class UserPageController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String getUser(Principal principal, Model model){
+    @GetMapping("/page")
+    public User getUser(Principal principal){
         User user = userService.findByUsername(principal.getName());
-        model.addAttribute("user",user);
-        return "user";
+        user = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail());
+        return user;
     }
 
 }
