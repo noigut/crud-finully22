@@ -53,9 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/main-page","/login").permitAll()
-//                .antMatchers("/**").permitAll()
                 .antMatchers("/user").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-                .antMatchers("/admin-page","/admin/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/admin-page","/api/users/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest()
                 .authenticated();
         http.formLogin()
@@ -68,10 +67,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .and().csrf().disable();
     }
-
-
-
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

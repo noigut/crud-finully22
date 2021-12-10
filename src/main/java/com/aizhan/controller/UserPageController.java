@@ -17,8 +17,16 @@ public class UserPageController {
         this.userService = userService;
     }
 
+
     @GetMapping("/page")
     public User getUser(Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        user = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail());
+        return user;
+    }
+
+    @GetMapping("/adminPage")
+    public User getAdmin(Principal principal){
         User user = userService.findByUsername(principal.getName());
         user = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail());
         return user;

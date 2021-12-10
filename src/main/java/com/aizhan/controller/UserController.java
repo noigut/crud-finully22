@@ -36,6 +36,8 @@ public class UserController {
         return users.stream().sorted(Comparator.comparing(User::getId)).collect(Collectors.toList());
     }
 
+
+    @CrossOrigin
     @PostMapping("/save-user")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         try {
@@ -49,8 +51,7 @@ public class UserController {
     }
 
 
-
-    @PutMapping("/update")
+    @PutMapping("/update ")
     @CrossOrigin
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         try {
@@ -63,6 +64,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @DeleteMapping("/delete/{id}")
     @CrossOrigin
