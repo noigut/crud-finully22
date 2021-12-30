@@ -1,6 +1,6 @@
-package com.aizhan.repository;
+package com.talant.repository;
 
-import com.aizhan.entity.User;
+import com.talant.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

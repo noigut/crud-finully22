@@ -1,12 +1,10 @@
-package com.aizhan.service;
+package com.talant.service;
 
-import com.aizhan.entity.User;
-import com.aizhan.repository.UserRepository;
+import com.talant.entity.User;
+import com.talant.repository.UserRepository;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

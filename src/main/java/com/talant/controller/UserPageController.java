@@ -1,7 +1,7 @@
-package com.aizhan.controller;
+package com.talant.controller;
 
-import com.aizhan.entity.User;
-import com.aizhan.service.UserService;
+import com.talant.entity.User;
+import com.talant.service.UserService;
 
 import org.springframework.web.bind.annotation.*;
 

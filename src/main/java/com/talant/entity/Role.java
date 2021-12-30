@@ -1,4 +1,4 @@
-package com.aizhan.entity;
+package com.talant.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 

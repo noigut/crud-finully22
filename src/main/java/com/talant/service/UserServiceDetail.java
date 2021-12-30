@@ -1,8 +1,8 @@
-package com.aizhan.service;
+package com.talant.service;
 
-import com.aizhan.entity.Role;
-import com.aizhan.entity.User;
-import com.aizhan.repository.UserRepository;
+import com.talant.entity.Role;
+import com.talant.entity.User;
+import com.talant.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

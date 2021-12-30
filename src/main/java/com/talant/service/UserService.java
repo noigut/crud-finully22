@@ -1,6 +1,6 @@
-package com.aizhan.service;
+package com.talant.service;
 
-import com.aizhan.entity.User;
+import com.talant.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.aizhan.security;
+package com.talant.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

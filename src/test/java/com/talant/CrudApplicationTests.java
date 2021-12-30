@@ -1,4 +1,4 @@
-package com.aizhan;
+package com.talant;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

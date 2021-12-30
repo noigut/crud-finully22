@@ -1,7 +1,7 @@
-package com.aizhan.service;
+package com.talant.service;
 
-import com.aizhan.entity.Role;
-import com.aizhan.repository.RoleRepository;
+import com.talant.entity.Role;
+import com.talant.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
